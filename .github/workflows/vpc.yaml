@@ -1,0 +1,26 @@
+name: VPC
+
+on:
+  workflow_dispatch:
+    inputs:
+      serviceName:
+        description: "Service name"
+        required: true
+        default: "basic-2az-network"
+
+jobs:
+  create-change-set:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Deploy to AWS CloudFormation
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with:
+          name: VPCStack
+          template: vpc.yaml
+          parameter-overrides: "ServiceName=${{ github.event.inputs.serviceName }}"
