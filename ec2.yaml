@@ -10,6 +10,6 @@ Resources:
   EC2WebServer01:
     Type: AWS::EC2::Instance
     Properties:
-      SubnetId: Fn::ImportValue "PublicSubnet1ID"
+      SubnetId: !ImportValue PublicSubnet1ID
       ImageId: !Ref EC2AMI
       InstanceType: t2.micro
