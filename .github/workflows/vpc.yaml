@@ -30,4 +30,5 @@ jobs:
         with:
           name: VPCStack
           template: vpc.yaml
+          no-execute-changeset: 1
           parameter-overrides: "ServiceName=${{ github.event.inputs.serviceName }}"
