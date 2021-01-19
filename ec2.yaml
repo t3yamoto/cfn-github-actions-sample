@@ -13,3 +13,6 @@ Resources:
       SubnetId: !ImportValue PublicSubnet1ID
       ImageId: !Ref EC2AMI
       InstanceType: t2.micro
+      Tags:
+        - Key: Name
+          Value: Actions
