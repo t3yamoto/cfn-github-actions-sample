@@ -62,6 +62,8 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${ServiceName}-vpc
+        - Key: Update
+          Value: test
 
   InternetGateway:
     Type: AWS::EC2::InternetGateway
