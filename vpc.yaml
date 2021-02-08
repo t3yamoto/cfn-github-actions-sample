@@ -141,9 +141,9 @@ Resources:
 
   TestBucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
     Properties: 
       BucketName: fdsafsfdsadsafdsafdsafdsafdsafdsafdsafdsafd
-      DeletionPolicy: Retain
 
 Outputs:
   VpcID:
