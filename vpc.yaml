@@ -139,11 +139,6 @@ Resources:
         - Key: Name
           Value: !Sub ${ServiceName}-private-subnet-2
 
-  TestBucket:
-    Type: AWS::S3::Bucket
-    DeletionPolicy: Retain
-    Properties: 
-      BucketName: fdsafsfdsadsafdsafdsafdsafdsafdsafdsafdsafd
 
 Outputs:
   VpcID:
