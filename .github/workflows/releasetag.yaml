@@ -12,14 +12,25 @@ jobs:
         with: 
           fetch-depth: 1
           
-      - name: Tag
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git tag hoge
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          tag_name: v${{ github.ref }}
+          release_name: Release v${{ github.ref }}
+          draft: false
+          prerelease: false
+
+#       - name: Tag
+#         run: |
+#           git config --local user.email "action@github.com"
+#           git config --local user.name "GitHub Action"
+#           git tag hoge
+
+#       - name: Push changes
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           branch: ${{ github.ref }}
