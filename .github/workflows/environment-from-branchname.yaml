@@ -18,7 +18,7 @@ jobs:
       - name: Set environment name2
         shell: bash
         run: |
-          declare -A ENVIRONMENTS(
+          declare -A ENVIRONMENTS=(
             ["master"]="prod"
             ["staging"]="staging"
           )
