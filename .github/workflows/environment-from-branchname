@@ -1,0 +1,15 @@
+name: environment-from-branchname
+
+jobs:
+  environment-from-branchname:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set environment name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: Set environment name
+        shell: bash
+        run: echo ${{ steps.extract_branch.outputs.branch }}
+
