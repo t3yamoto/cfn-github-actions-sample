@@ -19,7 +19,7 @@ jobs:
         shell: bash
         run: |
           declare -A ENVIRONMENTS=(
-            ["main"]="prod"
+            ["master"]="prod"
             ["staging"]="staging"
           )
           echo "ENVIRONMENT=${ENVIRONMENTS[${BRANCH}]}" >> $GITHUB_ENV
