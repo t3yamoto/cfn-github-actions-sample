@@ -15,3 +15,13 @@ jobs:
       - name: Set environment name
         shell: bash
         run: echo $BRANCH
+      - name: Set environment name2
+        shell: bash
+        run: |
+          declare -A ENVIRONMENTS=(
+            ["main"]="prod"
+            ["staging"]="staging"
+          )
+          echo "ENVIRONMENT=${ENVIRONMENTS[${BRANCH}]}" >> $GITHUB_ENV
+          echo $ENVIRONMENT
+
