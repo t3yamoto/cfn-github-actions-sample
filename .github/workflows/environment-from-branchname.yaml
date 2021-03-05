@@ -8,14 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set environment name
+      - name: Set environment variable `BRANCH`
         shell: bash
-        # run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         run: echo "BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV 
-      - name: Set environment name
-        shell: bash
-        run: echo $BRANCH
-      - name: Set environment name2
+
+      - name: Set  environment variable `ENVIRONMENT`
         shell: bash
         run: |
           declare -A ENVIRONMENTS=(
@@ -23,7 +20,10 @@ jobs:
             ["staging"]="staging"
           )
           echo "ENVIRONMENT=${ENVIRONMENTS[$BRANCH]:-"develop"}" >> $GITHUB_ENV
-      - name: Set environment name
+
+      - name: Echo environment variables
         shell: bash
-        run: echo $ENVIRONMENT
+        run: |
+          echo "BRANCH:$BRANCH"
+          echo "ENVIRONMENT:$ENVIRONMENT"
 
