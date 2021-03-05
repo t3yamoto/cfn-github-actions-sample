@@ -22,7 +22,6 @@ jobs:
           ENVIRONMENTS["master"]="prod"
           ENVIRONMENTS["staging"]="staging"
           echo "ENVIRONMENT=${ENVIRONMENTS[$BRANCH]}" >> $GITHUB_ENV
+          echo $ENVIRONMENT
 
-      - name: Set environment name3
-        shell: bash
-        run: echo $ENVIRONMENT
+
