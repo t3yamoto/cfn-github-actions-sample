@@ -1,0 +1,19 @@
+name: releasetag
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  releasetag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          fetch-depth: 1
+          
+      - run: git log
+        shell: bash
+        name: hoge
+        
+          
