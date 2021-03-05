@@ -12,8 +12,14 @@ jobs:
         with: 
           fetch-depth: 1
           
-      - run: git log
-        shell: bash
-        name: hoge
-        
-          
+      - name: Tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag hoge
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
