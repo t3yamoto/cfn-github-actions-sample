@@ -14,8 +14,8 @@ jobs:
       - name: TAG
         shell: bash
         run: |
-          TAG=v$(date '+%Y%m%d')$(git rev-parse --short HEAD)
-          echo "${TAG}" >> $GITHUB_ENV
+          TAG=v$(date '+%Y%m%d').$(git rev-parse --short HEAD)
+          echo "${TAG}"
       - name: Create release
         id: create_release
         uses: actions/create-release@v1.0.0
