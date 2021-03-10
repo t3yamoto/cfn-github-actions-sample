@@ -11,6 +11,8 @@ on:
 jobs:
   create-change-set:
     runs-on: ubuntu-latest
+    env:
+      HOGE: dev
 
     steps:
       - name: Checkout repository
@@ -37,4 +39,4 @@ jobs:
           name: VPCStack
           template: vpc.yaml
           no-execute-changeset: 1
-          parameter-overrides: "ServiceName=${{ github.event.inputs.serviceName }}"
+          parameter-overrides: ServiceName=${{ secrets.${{ env.HOGE }}PeerVpcId }}
